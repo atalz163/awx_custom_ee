@@ -1,0 +1,11 @@
+---
+- name: Ansible Playbook
+  hosts: your_host
+
+  tasks:
+    - name: Install Python packages
+      pip:
+        name:
+          - pywinrm[credssp]
+          - requests
+        state: present
