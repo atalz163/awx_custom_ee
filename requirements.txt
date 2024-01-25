@@ -1,0 +1,10 @@
+pywinrm[credssp]
+requests
+requests-credssp
+lxml
+wheel
+psutil
+cryptography
+simplejson
+jmespath
+

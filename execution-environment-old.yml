@@ -1,0 +1,21 @@
+---
+version: 1
+
+build_arg_defaults:
+  EE_BASE_IMAGE: 'quay.io/ansible/awx-ee:latest'
+  EE_BUILDER_IMAGE: 'quay.io/ansible/ansible-builder:latest'
+
+
+
+dependencies:
+  galaxy: requirements.yml
+  python: requirements.txt
+  system: bindep.txt
+
+additional_build_steps:
+  prepend: |
+    RUN pip3 install --upgrade pip setuptools
+#    RUN ANSIBLE_GALAXY_DISABLE_GPG_VERIFY=1 ansible-galaxy collection install  -r requirements.yml --collections-path /usr/share/ansible/collections
+  append:
+    - RUN echo This is a post-install command!
+    - RUN ls -la /etc
